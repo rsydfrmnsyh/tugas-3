@@ -1,23 +1,25 @@
 <?php
-    $title=$_POST['judul'];
-    $genre=$_POST['kategori'];
-    $date=$_POST['tanggal'];
-    $month=$_POST['bulan'];
-    $year=$_POST['tahun'];
-    $datecomb=date_create($year."-".$month."-".$date);
-    $fulldate=date_format($datecomb, "d M Y");
-    $duration=$_POST['durasi'];
-    $name=$_POST['nama'];
-    $officer=$_POST['petugas'];
+    if (isset($_POST['btnsubmit'])) {
+        $title=$_POST['judul'];
+        $genre=$_POST['kategori'];
+        $date=$_POST['tanggal'];
+        $month=$_POST['bulan'];
+        $year=$_POST['tahun'];
+        $datecomb=date_create($year."-".$month."-".$date);
+        $fulldate=date_format($datecomb, "d M Y");
+        $duration=$_POST['durasi'];
+        $name=$_POST['nama'];
+        $officer=$_POST['petugas'];
 
-    $rent=0;
-    if ($genre == "ilmiah") {
-        $rent = 10000;
+        $rent=0;
+        if ($genre == "ilmiah") {
+            $rent = 10000;
+        }
+        else {
+            $rent = 5000;
+        }
+        $bill = $rent * $duration;
     }
-    else {
-        $rent = 5000;
-    }
-    $bill = $rent * $duration;
 ?>
 <!DOCTYPE html>
 <html lang="en">
